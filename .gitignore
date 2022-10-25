@@ -1,0 +1,25 @@
+*.pri
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.loa
+*.lof
+*.log
+*.lot
+*.out
+*.xml
+*.toc
+# my ignores
+/dp
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.lol
+*.gz
