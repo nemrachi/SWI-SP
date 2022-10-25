@@ -2,24 +2,6 @@
 \ProvidesClass{FEIstyle}[2020/05/13 v. 1.6.1 Thesis template - FEI STUBA]
 
 % parse arguments
-\DeclareOption{dizp}{\def\typPraceSkr{dizp}
-    \def\isThesis{1}
-    \def\typPraceEn{Dissertation}
-    \def\typPrace{Dizerta\v{c}n\a'a pr\a'aca}
-    \def\typPraceTemp{dizerta\v{c}n\'{u} pr\'{a}cu}
-    \def\typPraceTempII{dizerta\v{c}nej pr\'{a}ce}}
-\DeclareOption{dp}{\def\typPraceSkr{d}
-    \def\isThesis{1}
-    \def\typPraceEn{Master's thesis}
-    \def\typPrace{Diplomov\a'a pr\a'aca}
-    \def\typPraceTemp{diplomov\'{u} pr\'{a}cu}
-    \def\typPraceTempII{diplomovej pr\'{a}ce}}
-\DeclareOption{bp}{\def\typPraceSkr{b}
-    \def\isThesis{1}
-    \def\typPraceEn{Bachelor's thesis}
-    \def\typPrace{Bakal\a'arska pr\a'aca}
-    \def\typPraceTemp{bakal\'{a}rsku pr\'{a}cu}
-    \def\typPraceTempII{bakal\'{a}rskej pr\'{a}ce}}
 \DeclareOption{sp}{\def\typPraceSkr{s}}
     \def\isThesis{0}
     \def\typPraceEn{Seminar paper}
@@ -29,15 +11,6 @@
 
 \newcommand*\myset{a4paper,12pt}
 \newcommand*\parentclass{article}
-
-\DeclareOption{article}{
-    \renewcommand*\myset{a4paper,12pt}
-    \renewcommand*\parentclass{article}
-}
-\DeclareOption{book}{
-    \renewcommand*\myset{a4paper,12pt}
-    \renewcommand*\parentclass{book}
-}
 
 \def\FEIenglish{0}
 \DeclareOption{en}{
@@ -73,13 +46,10 @@
 
 \usepackage[style=slovak]{csquotes}
 \usepackage{microtype}
-\usepackage[T1]{fontenc}
+\usepackage{times}
 
 \usepackage[immediate]{silence}
 \WarningFilter[temp]{latex}{Command}
-% silence warnings of sectsty/sectsty.sty:
-%     'Command \underbar has changed.'
-%     'Command \underline has changed.'
 \usepackage{sectsty}
 \DeactivateWarningFilters[temp]
 
@@ -105,9 +75,17 @@
 \usepackage[bookmarksopen,colorlinks,plainpages=false,urlcolor=blue,hypertexnames=false,unicode]{hyperref}
 \usepackage{algorithm}
 \usepackage{algorithmic}
-% \usepackage{showframe} % debugging overflows
+\usepackage[owncaptions]{vhistory}
 
-% \cftsetpnumwidth{1.8em} % set the dots width in loX (f,t,l,a...) https://tex.stackexchange.com/q/369283/106389
+\renewcommand{\vhhistoryname}{História zmien}
+\renewcommand{\vhversionname}{Verzia}
+\renewcommand{\vhdatename}{Dátum}
+\renewcommand{\vhauthorname}{Autor}
+\renewcommand \vhAuthorColWidth{3cm}
+\renewcommand{\vhchangename}{Zmeny}
+
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage[a4paper, margin=2.5cm]{geometry}
 
 \newboolean{isThesis}
 
@@ -166,18 +144,6 @@
 \def\FEItitleEn#1{\def\@nazovEn{#1}}
 \newcommand{\printNazovEn}{\@nazovEn}
 
-\def\@keywords{\@nedefinovane FEIkeywords}
-\def\FEIkeywords#1{\def\@keywords{#1}}
-\newcommand{\printKeywords}{\@keywords}
-
-\def\@keywordsEn{\@nedefinovane FEIkeywordsEn}
-\def\FEIkeywordsEn#1{\def\@keywordsEn{#1}}
-\newcommand{\printKeywordsEn}{\@keywordsEn}
-
-\def\@evidencneCislo{\@nedefinovane FEIregNr}
-\def\FEIregNr#1{\def\@evidencneCislo{#1}}
-\newcommand{\printEvidencneCislo}{\@evidencneCislo}
-
 \def\@den{\number\day}
 \def\@mesiac{\number\month}
 \def\@rok{\number\year}
@@ -194,34 +160,6 @@
 \def\FEIstudyProgrammeEn#1{\def\@studijnyProgramEn{#1}}
 \newcommand{\printStudijnyProgramEn}{\@studijnyProgramEn}
 
-%\def\@cisloStudijnehoOdboru{2511}
-%\def\FEIstudyFieldNumber#1{\def\@cisloStudijnehoOdboru{#1}}
-%\newcommand{\printCisloStudijnehoOdboru}{\@cisloStudijnehoOdboru}
-
-\def\@nazovStudijnehoOdboru{Informatika}
-\def\FEIstudyField#1{\def\@nazovStudijnehoOdboru{#1}}
-\newcommand{\printNazovStudijnehoOdboru}{\@nazovStudijnehoOdboru}
-
-\def\@nazovStudijnehoOdboruEn{Computer Science}
-\def\FEIstudyFieldEn#1{\def\@nazovStudijnehoOdboruEn{#1}}
-\newcommand{\printNazovStudijnehoOdboruEn}{\@nazovStudijnehoOdboruEn}
-
-\def\@skoliacePracovisko{\a'Ustav informatiky a matematiky}
-\def\FEItrainingWorkplace#1{\def\@skoliacePracovisko{#1}}
-\newcommand{\printSkoliacePracovisko}{\@skoliacePracovisko}
-
-\def\@skoliacePracoviskoEn{Institute of Computer Science and Mathematics}
-\def\FEItrainingWorkplaceEn#1{\def\@skoliacePracoviskoEn{#1}}
-\newcommand{\printSkoliacePracoviskoEn}{\@skoliacePracoviskoEn}
-
-\def\@veduciZaverecnejPrace{\@nedefinovane FEIsupervisor}
-\def\FEIsupervisor#1{\def\@veduciZaverecnejPrace{#1}}
-\newcommand{\printVeduciZaverecnejPrace}{\@veduciZaverecnejPrace}
-
-\def\@tempKonzultant{0}
-\def\FEIconsultant#1{\def\@konzultant{#1} \def\@tempKonzultant{1}}
-\newcommand{\printKonzultant}{\@konzultant}
-
 \def\@mesto{Bratislava}
 \def\FEIplace#1{\def\@mesto{#1}}
 \newcommand{\printMesto}{\@mesto}
@@ -231,11 +169,11 @@
 \pagestyle{plain}
 \parindent=0.8cm
 \parskip=1pt
-\linespread{1.3}
+\linespread{1.0}
 \hypersetup{colorlinks, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black}
-\sectionfont{\bf\fontsize{22pt}{1.3}\selectfont}
-\subsectionfont{\bf\fontsize{16pt}{1.3}\selectfont}
-\subsubsectionfont{\bf\fontsize{14pt}{1.3}\selectfont}
+\sectionfont{\bf\fontsize{22pt}{1.0}\selectfont}
+\subsectionfont{\bf\fontsize{16pt}{1.0}\selectfont}
+\subsubsectionfont{\bf\fontsize{14pt}{1.0}\selectfont}
 
 \titlespacing*\section{0pt}{24pt}{12pt}
 \titlespacing*\subsection{6pt}{12pt}{6pt}
@@ -249,27 +187,6 @@
   showstringspaces=false, % removes ␣ character from " "
   captionpos=b % caption below text
 }
-
-%\IfEqCase*{\FEIenglish}{
-%    {0}{
-%        \addto\captionsslovak{\renewcommand{\figurename}{Obr\a'azok}}
-%        \addto\captionsslovak{\renewcommand{\tablename}{Tabu\v{l}ka}}
-%        \addto\captionsslovak{\renewcommand{\contentsname}{Obsah}}
-%        \addto\captionsslovak{\renewcommand\listfigurename{Zoznam obr\a'azkov}}
-%        \addto\captionsslovak{\renewcommand\listtablename{Zoznam tabuliek}}
-%        \addto\captionsslovak{\renewcommand{\chaptername}{Kapitola}}
-%        \addto\captionsslovak{\renewcommand{\lstlistingname}{V\a'ypis}}
-%        \renewcommand{\ALG@name}{Algoritmus}}
-%    {1}{
-%        \addto\captionsenglish{\renewcommand{\figurename}{Figure}}
-%        \addto\captionsenglish{\renewcommand{\tablename}{Table}}
-%        \addto\captionsenglish{\renewcommand{\contentsname}{Contents}}
-%        \addto\captionsenglish{\renewcommand\listfigurename{List of Figures}}
-%        \addto\captionsenglish{\renewcommand\listtablename{List of Table}}
-%        \addto\captionsenglish{\renewcommand{\chaptername}{Chapter}}
-%        \addto\captionsenglish{\renewcommand{\lstlistingname}{Listing}}
-%        \renewcommand{\ALG@name}{Algorithm}}
-%    }[]
 
 % http://tex.stackexchange.com/questions/588/how-can-i-change-the-margins-for-only-part-of-the-text
 \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
@@ -296,49 +213,6 @@
     \end{description}
 }
 
-\newcommand\FEIcover{
-    \pagestyle{empty}
-    \begin{changemargin}{0.19cm}{0.19cm}
-        \IfEqCase*{\FEIenglish}{
-            {0}{
-                \def\@skolaTemp{\printSkola}
-                \def\@skolaFakulta{\printFakulta}
-                \def\@skolaEvCislo{{\fontsize{12pt}{1.3}\selectfont Eviden\v{c}n\a'e \v{c}\a'islo: \printEvidencneCislo}}
-                \def\@skolaNazovPrace{\printNazov}
-                \def\@skolaTypPrace{\typPrace}
-                }
-            {1}{
-                \def\@skolaTemp{\printSkolaEn}
-                \def\@skolaFakulta{\printFakultaEn}
-                \def\@skolaEvCislo{{\fontsize{12pt}{1.3}\selectfont Registration number: \printEvidencneCislo}}
-                \def\@skolaNazovPrace{\printNazovEn}
-                \def\@skolaTypPrace{\typPraceEn}
-                }
-            }[]
-        \begin{center}
-            {\fontsize{14pt}{1.3}\selectfont \bf \MakeTextUppercase{\@skolaTemp}\newline \MakeTextUppercase{\@skolaFakulta}}    
-        \end{center}
-        \vspace{10mm}
-        \ifthenelse{\boolean{isThesis}}
-        {
-            \@skolaEvCislo
-        }{}
-        \vspace{60mm}
-        \begin{center}
-            {\fontsize{16pt}{1.3}\selectfont \bf{\MakeTextUppercase{\@skolaNazovPrace}}} \\[1em] 
-            {\bf\fontsize{16pt}{1.3}\selectfont \MakeTextUppercase{\@skolaTypPrace}}
-        \end{center}
-        \vspace{\fill}
-        \begin{flushleft}
-            {\fontsize{14pt}{1.3}\selectfont \bf
-                \@rok
-                \hfill
-                \printAutor}
-        \end{flushleft} 
-    \end{changemargin}
-    \newpage    
-}
-
 \newcommand\FEItitlePage{
     \setcounter{page}{1}
     \pagestyle{empty}
@@ -349,14 +223,9 @@
                 \def\@skolaFakulta{\printFakulta}
                 \def\@skolaStudPr{\printStudijnyProgram}
                 \def\@skolaStudPrCisl{\printNazovStudijnehoOdboru}
-                \def\@skolaSkolPrac{\printSkoliacePracovisko}
-                \def\@skolaEvCislo{{\fontsize{12pt}{1.3}\selectfont Eviden\v{c}n\a'e \v{c}\a'islo: \printEvidencneCislo}}
                 \def\@skolaNazovPrace{\printNazov}
                 \def\@skolaTypPrace{\typPrace}
                 \def\@tempStudProgr{\v{S}tudijn\a'y program:}
-                %\def\@tempCisloStud{\v{C}\a'islo \v{s}tudijn\a'eho odboru:}
-                \def\@tempNazovStud{N\a'azov \v{s}tudijn\a'eho odboru:}
-                \def\@tempSkolPracov{\v{S}koliace pracovisko:}
                 \def\@tempVedPrace{Ved\a'uci z\a'avere\v{c}nej pr\a'ace:}
                 \def\@tempKonzultanta{Konzultant:}
                 \ifthenelse{\boolean{isThesis}}
@@ -375,7 +244,7 @@
                 \def\@skolaStudPr{\printStudijnyProgramEn}
                 \def\@skolaStudPrCisl{\printNazovStudijnehoOdboruEn}
                 \def\@skolaSkolPrac{\printSkoliacePracoviskoEn}
-                \def\@skolaEvCislo{\fontsize{12pt}{1.3}\selectfont Registration number: \printEvidencneCislo}       
+                \def\@skolaEvCislo{\fontsize{12pt}{1.0}\selectfont Registration number: \printEvidencneCislo}       
                 \def\@skolaNazovPrace{\printNazovEn}
                 \def\@skolaTypPrace{\typPraceEn}
                 \def\@tempStudProgr{Study Programme:}
@@ -396,26 +265,26 @@
             }
             }[]
         \begin{center}
-            {\fontsize{14pt}{1.3}\selectfont \bf \MakeTextUppercase{\@skolaTemp}\newline \MakeTextUppercase{\@skolaFakulta}}    
+            {\fontsize{14pt}{1.0}\selectfont \bf \MakeTextUppercase{\@skolaTemp}\newline \MakeTextUppercase{\@skolaFakulta}}    
         \end{center}
         \vspace{10mm}
         {
             \ifthenelse{\boolean{isThesis}}
             {
-                \fontsize{12pt}{1.3}\selectfont \@skolaEvCislo
+                \fontsize{12pt}{1.0}\selectfont \@skolaEvCislo
             }{}
         }    
         \vspace{60mm}
         \begin{center}
-            {\fontsize{16pt}{1.3}\selectfont \bf{\MakeTextUppercase{\@skolaNazovPrace}}} \\[1em]
-            {\bf\fontsize{16pt}{1.3}\selectfont  \MakeTextUppercase{\@skolaTypPrace}}
+            {\fontsize{16pt}{1.0}\selectfont \bf{\MakeTextUppercase{\@skolaNazovPrace}}} \\[1em]
+            {\bf\fontsize{16pt}{1.0}\selectfont  \MakeTextUppercase{\@skolaTypPrace}}
         \end{center}
         \vspace{\fill}
         \begin{tabbing}
             \hspace*{5cm}\= \kill
             \@tempStudProgr \> \@skolaStudPr \\
             \ifthenelse{\boolean{isThesis}}
-            {%\@tempCisloStud \> \printCisloStudijnehoOdboru \\
+            {
              \@tempNazovStud \> \@skolaStudPrCisl \\
              \@tempSkolPracov \> \@skolaSkolPrac \\
              \@tempVedPrace \> \printVeduciZaverecnejPrace \\
@@ -430,7 +299,7 @@
         \end{tabbing}
         \vspace{\fill}
         \begin{flushleft}
-            {\fontsize{14pt}{1.3}\selectfont \bf
+            {\fontsize{14pt}{1.0}\selectfont \bf
                 \printMesto \
                 \@rok
                 \hfill
@@ -438,86 +307,6 @@
         \end{flushleft}
     \end{changemargin}
     \newpage
-}
-
-\newcommand\FEIthanks[1]{
-    \pagestyle{empty}
-    \vspace*{120mm}
-    \IfEqCase*{\FEIenglish}{
-        {0}{\section*{\fontsize{22pt}{1.3}\selectfont Po\v{d}akovanie}}
-        {1}{\section*{\fontsize{22pt}{1.3}\selectfont Acknowledgments}}
-        }[]
-        
-    \ifthenelse{\isempty{#1}}
-    {Chcem sa po\v{d}akova\v{t} ved\'{u}cemu z\'{a}vere\v{c}nej pr\'{a}ce, ktor\'{y}m bol \printVeduciZaverecnejPrace, za odborn\'{e} vedenie, rady a pripomienky, ktor\'{e} mi pomohli pri vypracovan\'{i} tejto  \typPraceTempII.}
-    {\input{#1}}    
-    \newpage
-}
-
-\newcommand\FEIassignment[1]{   
-    \pagestyle{empty}
-    \setlength{\voffset}{-2.5cm}
-    \begin{center}
-        \makebox[\textwidth]{\includegraphics[width=\paperwidth]{#1}}
-    \end{center}
-    \setlength{\hoffset}{0cm} 
-    \setlength{\voffset}{0cm}
-}
-
-\newcommand\FEIabstract[1]{
-    \pagestyle{empty}   
-    \section*{\fontsize{22pt}{1.3}\selectfont S\'{U}HRN}
-    \noindent\MakeTextUppercase{\printSkola}
-    \newline
-    \MakeTextUppercase{\printFakulta}
-    \vspace{1em}
-    \begin{tabbing} 
-        \hspace*{7cm}\= \kill
-        \v{S}tudijn\a'y program:\> \printStudijnyProgram \\
-        Autor:\> \printAutor \\
-        \typPrace:\>
-        \begin{minipage}[t]{21.5em}
-            \printNazov
-        \end{minipage} \\
-        Ved\a'uci z\a'avere\v{c}nej pr\a'ace:\> \printVeduciZaverecnejPrace \\\IfEqCase*{\@tempKonzultant}{
-            {0}{}
-            {1}{Konzultant:\>\printKonzultant \\}
-                }[]Miesto a rok predlo\v{z}enia pr\a'ace:\>\printMesto \ \@rok
-    \end{tabbing}
-    \vspace{1em}
-    \input{#1}
-
-    \vspace{2em}
-    \noindent K\v{l}\a'u\v{c}ov\a'e slov\a'a: \printKeywords
-    \clearpage
-}
-    
-\newcommand\FEIabstractEn[1]{
-    \pagestyle{empty}   
-    \section*{\fontsize{22pt}{1.3}\selectfont ABSTRACT}
-    \noindent\MakeTextUppercase{\printSkolaEn}
-    \newline
-    \MakeTextUppercase{\printFakultaEn}
-    \vspace{1em}
-    \begin{tabbing} 
-        \hspace*{7cm}\= \kill
-        Study Programme:\> \printStudijnyProgramEn \\
-        Author:\> \printAutor \\
-        \typPraceEn:\>
-        \begin{minipage}[t]{21.5em}
-            \printNazovEn
-        \end{minipage} \\
-        Supervisor:\> \printVeduciZaverecnejPrace \\\IfEqCase*{\@tempKonzultant}{
-            {0}{}
-            {1}{Consultant:\>\printKonzultant \\}
-                }[]Place and year of submission:\>\printMesto \ \@rok
-    \end{tabbing}
-    \vspace{1em}
-    \input{#1}
-
-    \vspace{2em}
-    \noindent Keywords: \printKeywordsEn
-    \clearpage
 }
         
 \newcommand\FEIcontent{ 
@@ -561,25 +350,13 @@
     \newpage
     \pagestyle{plain}
 }
-        
-\newcommand\FEIlistOfAlgorithms{
-    \IfEqCase*{\FEIenglish}{
-        {0}{\def\@zoznamAlg{Zoznam algoritmov}}
-        {1}{\def\@zoznamAlg{List of Algorithm}}
-        }[]
-    \renewcommand{\listalgorithmname}{\bf\fontsize{22pt}{1.3}\selectfont \@zoznamAlg}
-    \pagestyle{plain}
-    \listofalgorithms
-    \newpage
-    \pagestyle{plain}
-}
 
 \newcommand\FEIlistOfListings{    
     \IfEqCase*{\FEIenglish}{
         {0}{\def\@zoznamList{Zoznam v\a'ypisov}}
         {1}{\def\@zoznamList{List of listings}}
         }[]
-    \renewcommand{\lstlistlistingname}{\bf\fontsize{22pt}{1.3}\selectfont \@zoznamList}
+    \renewcommand{\lstlistlistingname}{\bf\fontsize{22pt}{1.0}\selectfont \@zoznamList}
     \pagestyle{plain}
     \lstlistoflistings
     \newpage
@@ -614,47 +391,12 @@
     \newpage
     \pagestyle{plain}
 }
-             
-\newcommand\FEIintroduction[1]{ 
-    \pagestyle{plain}
-    \IfEqCase*{\FEIenglish}{
-        {0}{\def\@zoznamUv{\'{U}vod}}
-        {1}{\def\@zoznamUv{Introduction}}
-        }[]
-    \cleardoublepage
-    \phantomsection
-    \addcontentsline{toc}{section}{\@zoznamUv}
-    \section*{\@zoznamUv}
-    \noindent \input{#1}
-}
 
 \newcommand\FEIcore[1]{
     \let\stdsection\section
     \renewcommand\section{\newpage\stdsection}  
     \newpage
     \input{#1}
-}
-
-\newcommand\FEIconclusion[1]{   
-    \newpage
-    \IfEqCase*{\FEIenglish}{
-        {0}{\def\@zoznamZa{Z\'{a}ver}}
-        {1}{\def\@zoznamZa{Conclusion}}
-        }[]
-    \cleardoublepage
-    \phantomsection 
-    \addcontentsline{toc}{section}{\@zoznamZa}
-    \section*{\@zoznamZa}
-    \noindent \noindent \input{#1}
-}
-
-\newcommand\FEIresume[1]{   
-    \newpage
-    \cleardoublepage
-    \phantomsection 
-    \addcontentsline{toc}{section}{Resum\'{e}}
-    \section*{Resum\'{e}}
-    \noindent \noindent \input{#1}
 }
 
 \newcommand\FEIbibliography{    
@@ -697,8 +439,7 @@
     \counterwithin{algorithm}{section}
     \setcounter{lstlisting}{0}
     \counterwithin{lstlisting}{section}
-    % \setcounter{page}{1}  
-    \pagenumbering{Roman}
+    % \setcounter{page}{1}
     \cleardoublepage
     \phantomsection 
     \addcontentsline{toc}{section}{\@zoznamPri}
@@ -725,32 +466,13 @@
     \hypersetup{pdfinfo={
         Title={\printNazov},
         Author={\printAutor},
-        Subject={\typPrace},
-        Keywords={\printKeywords}
+        Subject={\typPrace}
     }}
 }
 
-%PZ: hack - front/main/backmatter v article 
-%http://tex.stackexchange.com/questions/154646/
-%\makeatletter
-
-\newcommand\frontmatter{%
-    \clearpage
-    %\@mainmatterfalse
-    \pagenumbering{roman}}
-
-\newcommand\mainmatter{%
-    \cleardoublepage
-    % \@mainmattertrue
-    \pagenumbering{arabic}}
-
-\newcommand\backmatter{%
-    \if@openright
-    \cleardoublepage
-    \else
-    \clearpage
-    \fi
-    % \@mainmatterfalse
+\newcommand\DocHistory[1]{ 
+    \newpage
+    \input{#1}
+    \newpage
 }
-%\makeatother
 \endinput

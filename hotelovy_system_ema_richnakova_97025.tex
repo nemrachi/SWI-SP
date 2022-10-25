@@ -1,8 +1,8 @@
 \documentclass[sp,z]{FEIstyle}
 
 \FEIauthor{Ema Richnáková}
-\FEItitle{Medzinárodný hotelový systém}
-\FEItitleEn{International hotel system}
+\FEItitle{Medzinárodný hotelový systém\newline Vlastný, marketingovo pôsobivý, komerčne úspešný a jedinečný názov}
+\FEItitleEn{International hotel system\newline Vlastný, marketingovo pôsobivý, komerčne úspešný a jedinečný názov}
 \FEIcourse{Softvérové inžinierstvo}
 \FEIcourseEn{Software engineering}
 \FEIcourseTag{B--SWI}
@@ -10,33 +10,24 @@
 \FEITA{RNDr. Martin Nehéz, PhD.}
 
 \FEIglossaries{includes/glossary}
-\bibliography{includes/bibliography.bib}
+%\bibliography{includes/bibliography.bib}
 
 \iffalse \input{includes/glossary} \fi
 
 \begin{document}
-\frontmatter
 
 \FEIpdfInfo
-\FEIcover
-\FEItitlePage  
+\FEItitlePage
+\DocHistory{includes/history}
 \FEIcontent
 \FEIlistOfFiguresAndTables
 \FEIlistOfGlossaries
-\FEIlistOfAlgorithms
-\FEIlistOfListings
 
-\mainmatter
-
-\FEIintroduction{includes/introduction}
 \FEIcore{includes/core}
-\FEIconclusion{includes/conclusion}
 
 % bibliography should use UTF-8 accents (write as is ľščťžýáí...) NOT converted by BibDesk
 % http://tex.stackexchange.com/questions/57743/how-to-write-%C3%A4-and-other-umlauts-and-accented-letters-in-bibliography
-\FEIbibliography %includes/bibliography.bib
-
-\backmatter
+%\FEIbibliography %includes/bibliography.bib
 
 \FEIlistOfAppendix
 \FEIappendix{Štruktúra elektronického nosiča\label{att:A}}{includes/attachmentA}

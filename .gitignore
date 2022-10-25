@@ -13,7 +13,6 @@
 *.xml
 *.toc
 # my ignores
-/dp
 *.acn
 *.acr
 *.alg

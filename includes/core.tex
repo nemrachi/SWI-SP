@@ -1,105 +1,181 @@
-\section{Ukážka glossaries}
+\section{Používateľská špecifikácia} % 3-4 strany
 \noindent Verzia FEIstyle 1.5 používa glossary\footnote{\url{https://www.ctan.org/pkg/glossaries?lang=en}} balík.
 \acrfull{cdma} je dlhá skratka naopak \acrshort{gsm} je skratka v krátkej forme.
-\section{Recitácia}
-Citujem všetky zdroje v \textbf{bibliography.bib}, \cite{t00, t01, t02, t03, kniha, kniha2, kniha3, small, big, cs, koll, kap, tug, knuth, zbornik, prispevok}. \newline Good luck.
-\section{Možnosti anonymizácie}
-\noindent Anonymizácia znamená zmena alebo úprava údajov tak, aby sa podľa nich nedala jednoznačne určiť osoba, ktorej tieto údaje patria \cite{t01}. Existuje niekoľko spôsobov, ktorými môžeme dosiahnuť rôznu úroveň anonymizácie na internete: od mazania cookies súborov po ukončení prehliadania webových stránok až po používanie operačných systémov, ktoré sú na anonymite založené; od bezplatných možností až po komerčné verzie.  
-\newline Nasleduje priblíženie niektorých možnosti anonymizácie.
 
-\subsection{Súkromné prehliadanie}
-\noindent Najpoužívanejšie internetové prehliadače súčasnosti majú v sebe zabudovanú funkcionalitu, ktorá dokáže čiastočne anonymizovať prístup na internet. Táto funkcionalita blokuje ukladanie navštívených stránok do histórie a nezaznamenáva súbory, ktoré sa stiahnu z~internetu. \acrshort{sw} a \acrlong{hw} sú skratky.
+Vžite sa do role majiteľa softvérovej firmy, ktorého zákazník požiadal o vytvorenie systému a vytvorte
+používateľskú špecifikáciu, ktorá bude slúžiť ako súčasť zmluvy.
 
-\begin{table}[!htbp]
-\caption{Moduly a ich funkcie pri anonymizácii}
-\label{modulyVlastnosti}
-\begin{center}
-\begin{tabular}{p{4cm}|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
-& \multicolumn{14}{c}%
-	 {\textbf{Funkcia}}\\ \hline
-&&&& & &\multicolumn{8}{c}%
-	 {Modifikácia}\\ 
-\textbf{Modul} &\begin{sideways} zobrazenie hlavičky \end{sideways} &\begin{sideways} blokovanie skriptov \end{sideways} &\begin{sideways} zmena IP \end{sideways} & \begin{sideways} zmena lokalizácie \end{sideways} & \begin{sideways} zmazanie/blokovanie cookies \end{sideways} & \begin{sideways} blokovanie trackerov \end{sideways}  & \begin{sideways} popis \end{sideways} & \begin{sideways}používateľský agent\end{sideways} & \begin{sideways} kódové označenie prehliadača \end{sideways} & \begin{sideways} názov prehliadača \end{sideways} & \begin{sideways} verzia prehliadača \end{sideways} & \begin{sideways} platforma \end{sideways} & \begin{sideways} výrobca prehliadača \end{sideways} & \begin{sideways} označenie výrobcu prehliadača \end{sideways} \\ \hline
-User agent switcher & & & & & &  & X & X & X & X & X & X & X & X  \\ \hline
-Ghostery &  && & & X & X &  &  & & & & & & \\  \hline
-Better privacy && &  & & X &  &  &  & & & & & & \\  \hline
-Anonymox &  && X & X & X &  & X & X & & & & & & \\  \hline
-Modify headers & & &  &  & X &  &  & X &  &  &  & & &  \\  \hline
-Request policy & & &  &  & & X  &  &  &  &  &  & & &   \\  \hline
-Live HTTP headers & X& &  &  & &  &  &  &  &  &  & & &   \\  \hline
-User agent awitcher & & &  &  & &  & X & X &  &  &  & & &   \\  \hline
-Header hacker & & &  &  & &  & X & X & X & X & X & X & X & X    \\  \hline
-Mod header & & &  &  & &  & X & X & X & X & X & X & X & X    \\  \hline
-Script no & &X &  &  & &  &  &  &  &  &  &  &  &     \\  \hline
-No script & &X &  &  & &  &  &  &  &  &  &  &  &     \\  \hline
-Proxify it & & &X  & X & &  &  &  &  &  &  &  &  &     \\  \hline
-I'm not here & & &  & X & &  &  &  &  &  &  &  &  &     \\  \hline
-Get edition & &X &X &X &X&X &  &  &  &  &  &  &  &     \\  \hline
-Anonymous browsing toolbar & & & X & X & &  &  &  &  &  &  &  &  &     \\  \hline
-Easy hide your IP and surf & & & X & X& &  &  & X & X & X & X &  &  &     \\  \hline
-\end{tabular}
-\end{center}
-\end{table}
+\subsection{Stručný úvod do problematiky}
 
-\subsection{Anonymná sieť}
-\noindent Anonymná sieť je sieť serverov, medzi ktorými dáta prechádzajú šifrované. V anonymných sieťach dáta prechádzajú z počítača používateľa, odkiaľ bola požiadavka poslaná, cez viaceré proxy smerovače, z ktorých každý správu doplní o smerovanie a zašifruje vlastným kľúčom. Cesta od ...
+Tu treba popísať, čo sa v danej oblasti robí, aké sú tam pravidlá,
+ciele, postupy, aká je business logika (doménová logika) atď. Heslovite je táto informácia
+zhrnutá v zadaní, ktoré ste dostali, avšak treba ju rozvinúť a doplniť nespomenuté časti a
+súvislosti. Použite vlastnú inteligenciu, tvorivosť, externé zdroje a diskusiu s inými ľuďmi, aby
+ste zistili, ako funguje daná doménová oblasť.
 
+\subsection{Používateľské požiadavky}
+Definujte zákazníkove ciele a prepíšte ich na merateľné požiadavky.
+Identifikujte a popíšte funkcionálne, nefunkcionálne a doménové požiadavky.
 
-\subsection{Funkcionalita}
-\noindent  Rozšírenie tiež okrem splnenia špecifikácie malo pre prehľadnosť a overenie funkčnosti zobrazovať údaje, ktoré boli na server odoslané. Zoznam údajov odoslaných na server, sa mal ukladať do krátkodobej histórie, aby nemal používateľ k dispozícií len najnovšie údaje, ale aj údaje odoslané v nejakom časovom období. Nejaky listing z priloh \ref{lst:sublime}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Funkcionalita2}
-\noindent Samozrejmosťou bolo nastavenie zapnutia rozšírenia pri štarte, prípadne interval zmeny odosielaných údajov.
+\section{Systémová špecifikácia}
+V diagramoch použite notáciu UML verzie 2.x
 
-\subsection{Vzhľad}
-\noindent Dôležitou požiadavkou kladenou na rozšírenie bolo príjemné používateľské rozhranie. Z~tohto dôvodu malo rozšírenie obsahovať zoznam modifikovaných vlastností a tlačidlo pre prístup k nastaveniam rozšírenia v jednoduchej a praktickej forme. Predpokladaný vzhľad je zobrazený na obrázku č. \ref{vzhladobr}.
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=8cm]{img/vzhlad.png}
-  \caption{Predpokladaný vzhľad rozšírenia.}
-  \label{vzhladobr}
-\end{figure}	 
-\noindent Dôležitou požiadavkou kladenou na rozšírenie bolo príjemné používateľské rozhranie.\cite{t00} Z~tohto dôvodu malo rozšírenie obsahovať zoznam modifikovaných vlastností a tlačidlo pre prístup k nastaveniam rozšírenia v jednoduchej a praktickej forme. Predpokladaný vzhľad je zobrazený na obrázku č. \ref{vzhladobr}.
+\subsection{Diagramy prípadov použitia.}
+Nakreslite diagram(y) prípadov použitia pre daný softvérový
+systém. Diagram (minimálne jeden, prípadne viacej ak sa to hodí), bude pomocou prípadov
+použitia obsahovať celú hlavnú funkcionalitu systému. Každý prípad použitia by mal, v rámci
+svojej realizácie, poskytovať svojmu hráčovi (alebo hráčom) niečo hodnotné, nejakú užitočnú
+funkcionalitu, nejaký pozorovateľný výsledok alebo zmenu.
 
-\begin{algorithm}
-\scriptsize
-\begin{algorithmic}
- \STATE <text>
- \IF{<condition>} \STATE {<text>} \ELSE \STATE{<text>} \ENDIF
- \IF{<condition>} \STATE {<text>} \ELSIF{<condition>} \STATE{<text>} \ENDIF
- \FOR{<condition>} \STATE {<text>} \ENDFOR
- \FOR{<condition> \TO <condition> } \STATE {<text>} \ENDFOR
- \FORALL{<condition>} \STATE{<text>} \ENDFOR
- \WHILE{<condition>} \STATE{<text>} \ENDWHILE
- \REPEAT \STATE{<text>} \UNTIL{<condition>}
- \LOOP \STATE{<text>} \ENDLOOP
- \REQUIRE <text>
- \ENSURE <text>
- \RETURN <text>
- \PRINT <text>
- \COMMENT{<text>}
- \AND, \OR, \XOR, \NOT, \TO, \TRUE, \FALSE
-\end{algorithmic}
-\caption{Ukážka príkazov pre algorithmic}  
-\label{alg:preview}  
-\end{algorithm}
+\subsection{Use-case tabuľky}
+K trom najzložitejším prípadom použitia vytvorte use-case tabuľku, ktorá
+bude obsahovať [2b]:
+– názov prípadu použitia
+– identifikátor - ako identifikátor môžete použiť svoje vlastné číslovanie, ktoré bude
+spájať jednotlivé prípady použitia z diagramu prípadov použitia.
+– opis prípadu použitia (stručný)
+– hráčov
+– vstupné podmienky
+– inicializácia
+– hlavnú postupnosť udalostí
+– alternatívnu postupnosť udalostí
+– výstupné podmienky
+VZOR: tutoriál č.2 – \href{https://uim.fei.stuba.sk/wp-content/uploads/2022/09/CV2-USC_tabulka_TUTORIAL.pdf}{use-case tabuľka}
 
-\begin{lstlisting}[
-  caption={Ukážka algoritmu},
-  label={lst:main-c},
-  language=c
-]
-/* Hello World program */
+\subsection{Diagram tried}
+Vytvorte jeden detailný dátový model pre celý váš systém, ktorý bude zahŕňať
+všetky atribúty, vzťahy, násobnosti a aspoň niektoré metódy. Zobrazte ho ako jeden UML 2.x
+diagram tried vo vašej výslednej dokumentácii. Ak je systém príliš komplexný, môžete rozčleniť
+diagram na viacero menších diagramov, ktoré budú reprezentovať len príslušný podsystém.
 
-#include<stdio.h>
+\subsection{Diagramy aktivít a sekvenčné diagramy}
+K vybraným netriviálnym prípadom použitia nakreslite
+diagramy graficky popisujúce tieto prípady použitia. Nakreslite 2 sekvenčné diagramy a 2
+diagramy aktivít.
 
-struct cpu_info {
-    long unsigned utime, ntime, stime, itime;
-    long unsigned iowtime, irqtime, sirqtime;
-};
+\subsection{Stavový diagram}
+Nakreslite stavový diagram pre vami vyvíjaný systém a v tabuľkách popíšte
+jednotlivé stavy a prechody. Môžete vytvoriť aj viacero menších stavových diagramov namiesto
+jedného veľkého.
 
-main()
-{
-    printf("Hello World");
-}
-\end{lstlisting}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Akceptačné testy}
+Vytvorte testy, na základe ktorých sa rozhodne o tom, či vytvorený systém spĺňa alebo nespĺňa
+požiadavky – teda či ho zákazník akceptuje alebo nie. Každý test by mal v tabuľke obsahovať minimálne
+tieto časti:
+• identifikátor
+• prípad použitia, ku ktorému test prislúcha
+• cieľ testu (čo overujeme – nanajvýš stručne)
+• vstupné podmienky
+• výstupné podmienky
+• jednotlivé kroky testu
+Kroky testu reprezentujú sekvenciu testovania a ku každému kroku prislúcha a je v teste popísaná určitá
+akcia (podnet od aktéra) a určitá reakcia systému na tento podnet. Aby bol výsledný systém zákazníkom
+akceptovaný, musí splniť všetky testy. Keďže v tomto zadaní systém neprogramujeme ale len
+navrhujeme, jednotlivé očakávané reakcie je potrebné si vymyslieť.
+Do dokumentácie doplňte aspoň 5 akceptačných testov
+• štyri, ktoré súvisia s funkcionálnymi požiadavkami a
+• jeden, ktorý overuje nefunkcionálne požiadavky.
+PRÍKLAD: \href{https://uim.fei.stuba.sk/wp-content/uploads/2022/10/AkceptacneTestyPriklad.pdf}{AkceptacneTestyPriklad.pdf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Projektové plánovanie}
+Vytvorte plán tvorby (realizácie) vášho systému.
+1. Rozdeľte prácu na aspoň 10 úloh a rozdeľte úlohy pre aspoň 4 ľudí tvoriacich váš tím. Počet si zvoľte
+podľa náročnosti témy, ale minimálne musí mať váš tím aspoň 4 členov.
+2. Odhadnite časovú náročnosť úloh, naplánujte postupnosť úloh do kalendára.
+3. V dokumente v kapitole 4.1 zobrazte Ganttov graf aj s tabuľkou závislostí a postupnosti vykonávania
+úloh, s míľnikmi a s WBS (work breakdown schedule).
+4. V dokumente v kapitole 4.2. zobrazte sieťový graf pre postupnosti vykonávania úloh.
+Na túto úlohu použite vami zvolený systém na projektový manažment (či už offline, lokálny program
+alebo ľubovoľný/dostupný online produkt). Zoznam je napr. na:
+\url{http://en.wikipedia.org/wiki/Comparison_of_project-management_software}. Úlohou je oboznámiť sa
+so systémom na projektový manažment.
+Odporúčame: Microsoft Project, Project Libre alebo google: alternatives to ms project
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{table}[!htbp]
+% \caption{Moduly a ich funkcie pri anonymizácii}
+% \label{modulyVlastnosti}
+% \begin{center}
+% \begin{tabular}{p{4cm}|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+% & \multicolumn{14}{c}%
+% 	 {\textbf{Funkcia}}\\ \hline
+% &&&& & &\multicolumn{8}{c}%
+% 	 {Modifikácia}\\ 
+% \textbf{Modul} &\begin{sideways} zobrazenie hlavičky \end{sideways} &\begin{sideways} blokovanie skriptov \end{sideways} &\begin{sideways} zmena IP \end{sideways} & \begin{sideways} zmena lokalizácie \end{sideways} & \begin{sideways} zmazanie/blokovanie cookies \end{sideways} & \begin{sideways} blokovanie trackerov \end{sideways}  & \begin{sideways} popis \end{sideways} & \begin{sideways}používateľský agent\end{sideways} & \begin{sideways} kódové označenie prehliadača \end{sideways} & \begin{sideways} názov prehliadača \end{sideways} & \begin{sideways} verzia prehliadača \end{sideways} & \begin{sideways} platforma \end{sideways} & \begin{sideways} výrobca prehliadača \end{sideways} & \begin{sideways} označenie výrobcu prehliadača \end{sideways} \\ \hline
+% User agent switcher & & & & & &  & X & X & X & X & X & X & X & X  \\ \hline
+% Ghostery &  && & & X & X &  &  & & & & & & \\  \hline
+% Better privacy && &  & & X &  &  &  & & & & & & \\  \hline
+% Anonymox &  && X & X & X &  & X & X & & & & & & \\  \hline
+% Modify headers & & &  &  & X &  &  & X &  &  &  & & &  \\  \hline
+% Request policy & & &  &  & & X  &  &  &  &  &  & & &   \\  \hline
+% Live HTTP headers & X& &  &  & &  &  &  &  &  &  & & &   \\  \hline
+% User agent awitcher & & &  &  & &  & X & X &  &  &  & & &   \\  \hline
+% Header hacker & & &  &  & &  & X & X & X & X & X & X & X & X    \\  \hline
+% Mod header & & &  &  & &  & X & X & X & X & X & X & X & X    \\  \hline
+% Script no & &X &  &  & &  &  &  &  &  &  &  &  &     \\  \hline
+% No script & &X &  &  & &  &  &  &  &  &  &  &  &     \\  \hline
+% Proxify it & & &X  & X & &  &  &  &  &  &  &  &  &     \\  \hline
+% I'm not here & & &  & X & &  &  &  &  &  &  &  &  &     \\  \hline
+% Get edition & &X &X &X &X&X &  &  &  &  &  &  &  &     \\  \hline
+% Anonymous browsing toolbar & & & X & X & &  &  &  &  &  &  &  &  &     \\  \hline
+% Easy hide your IP and surf & & & X & X& &  &  & X & X & X & X &  &  &     \\  \hline
+% \end{tabular}
+% \end{center}
+% \end{table}
+
+% \begin{figure}[!htbp]
+%   \centering
+%   \includegraphics[width=8cm]{img/vzhlad.png}
+%   \caption{Predpokladaný vzhľad rozšírenia.}
+%   \label{vzhladobr}
+% \end{figure}	 
+
+% \begin{algorithm}
+% \scriptsize
+% \begin{algorithmic}
+%  \STATE <text>
+%  \IF{<condition>} \STATE {<text>} \ELSE \STATE{<text>} \ENDIF
+%  \IF{<condition>} \STATE {<text>} \ELSIF{<condition>} \STATE{<text>} \ENDIF
+%  \FOR{<condition>} \STATE {<text>} \ENDFOR
+%  \FOR{<condition> \TO <condition> } \STATE {<text>} \ENDFOR
+%  \FORALL{<condition>} \STATE{<text>} \ENDFOR
+%  \WHILE{<condition>} \STATE{<text>} \ENDWHILE
+%  \REPEAT \STATE{<text>} \UNTIL{<condition>}
+%  \LOOP \STATE{<text>} \ENDLOOP
+%  \REQUIRE <text>
+%  \ENSURE <text>
+%  \RETURN <text>
+%  \PRINT <text>
+%  \COMMENT{<text>}
+%  \AND, \OR, \XOR, \NOT, \TO, \TRUE, \FALSE
+% \end{algorithmic}
+% \caption{Ukážka príkazov pre algorithmic}  
+% \label{alg:preview}  
+% \end{algorithm}
+
+% \begin{lstlisting}[
+%   caption={Ukážka algoritmu},
+%   label={lst:main-c},
+%   language=c
+% ]
+% /* Hello World program */
+
+% #include<stdio.h>
+
+% struct cpu_info {
+%     long unsigned utime, ntime, stime, itime;
+%     long unsigned iowtime, irqtime, sirqtime;
+% };
+
+% main()
+% {
+%     printf("Hello World");
+% }
+% \end{lstlisting}
