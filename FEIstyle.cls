@@ -94,7 +94,7 @@
     {1}{\setboolean{isThesis}{true}}
 }
 
-% deine global variables 
+% deine global variables
 \def\@nedefinovane{! UNDEFINED: \textbackslash}
 
 \def\@skola{Slovensk\a'a technick\a'a  univerzita v Bratislave}
@@ -163,6 +163,8 @@
 \def\@mesto{Bratislava}
 \def\FEIplace#1{\def\@mesto{#1}}
 \newcommand{\printMesto}{\@mesto}
+
+\newcommand\projectName{Hotelier}
 
 %definovanie globalnych nastaveni
 \pagenumbering{arabic}  
@@ -471,7 +473,7 @@
 }
 
 \newcommand\DocHistory[1]{ 
-    \newpage
+    \pagestyle{plain}
     \input{#1}
     \newpage
 }

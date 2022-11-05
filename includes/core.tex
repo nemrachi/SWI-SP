@@ -1,21 +1,77 @@
 \section{Používateľská špecifikácia} % 3-4 strany
-\noindent Verzia FEIstyle 1.5 používa glossary\footnote{\url{https://www.ctan.org/pkg/glossaries?lang=en}} balík.
-\acrfull{cdma} je dlhá skratka naopak \acrshort{gsm} je skratka v krátkej forme.
-
-Vžite sa do role majiteľa softvérovej firmy, ktorého zákazník požiadal o vytvorenie systému a vytvorte
-používateľskú špecifikáciu, ktorá bude slúžiť ako súčasť zmluvy.
-
 \subsection{Stručný úvod do problematiky}
+\acrfull{mhs} \projectName\ má ľuďom uľahčiť vyhľadávanie a rezerváciu 
+ubytovania v rôznych krajinách sveta.
+Systém je určený pre dve skupiny používateľov. 
+Pre potenciálnych zákazníkov hotelov alebo iných ubytovacích zariadení, 
+ktorí si chcú rezervovať najviac vyhovujúce ubytovanie v čo najlacnejšej 
+ponuke v ich vybranej lokalite v určitom čase. 
+A pre poskytovateľov ubytovania, ktorí dokážu a chcú poskytovať ubytovanie 
+a služby s tým spojené. 
+\acrshort{mhs} eviduje všetky možné destinácie, v ktorých si vie 
+potenciálny zákazník vyberať a porovnávať ubytovacie zariadenia a následne 
+zarezervovať vo vybranom čase, ak je ubytovacie zariadenie vtedy voľné. 
+Evidenciu destinácií vytvárajú samotní poskytovatelia ubytovancích zariadení, 
+pri zadávaní lokalít, kde sa nachádza poskytované ubytovanie. 
+Poskytovatelia ubytovania môžu byť fyzické osoby, živnostníci, hotely, 
+cestovné kancelárie a rôzne iné spoločnosti, ktoré sa zaoberajú turizmom 
+a hotelierstvom. 
+Po zaregistrovaní poskytovateľa ubytovania v \acrshort{mhs} a overení 
+pravdivosti údajov je mu vytvorený účet v systéme, do ktorého môže vložiť 
+svoju ponuku ubytovania a k nemu prezentačné materiály o ubytovaní a informácie 
+ako repertoár poskytovaných služieb, cenník, počet voľných miest v rôznych 
+časových obdobiach, kontaktné údaje, podmienky a pravidlá ubytovania a 
+poprípade zaujímavé tipy na výlety, občerstvenie alebo aktivity. 
+Neregistrovaný poskytovateľ nie je schopný vykonať takéto úkony v 
+\acrshort{mhs}, kvôli ochrane potenciálneho zákazníka, aby mal istotu, že 
+poskytovateľ je skutočná osoba alebo subjekt a ubytovacie zariadenie vôbec 
+existuje alebo existuje na danom mieste a vedia mu garantovať všetko, 
+čo by bolo v ponuke ubytovania uvádzané a nebol teda zákazník zavádzaný. 
+Potenciálny alebo už aktuálny zákazník registráciou do \acrshort{mhs} vie 
+získať možnosť hodnotiť ubytovacie zariadenia ako aj ich poskytovateľov a 
+nimi ponúkané služby a to aj anonymne a taktiež mu \acrshort{mhs} vie uložiť a 
+poskytnúť k nahliadnutiu celú históriu rezervácii ubytovaní.
+Neregistrovaní zákazníci vedia iba vyhľadávať a prezerať si 
+všetky ponuky ubytovania v rôznych krajinách sveta.
+Na samotnú rezerváciu ubytovania musí zákazník byť registrovaný a to z dôvodu 
+ochrany poskytovateľov ubytovania, aby zákazník bol viazaný na určité pravidlá 
+a povinosti pri rezervovaní ubytovania a aby poskytovateľ mal zaručený kontakt so 
+zákazníkom, pri vzniknutých komplikáciach z poskytovateľovej strany.
+\acrshort{mhs} poskytuje podporu pre automatické zisťovanie rôznych parametrov 
+prostredníctvom webových služieb alebo ako \acrfull{api}, ktoré 
+zabezpečujú dostupnosť a aktuálnosť údajov v \acrshort{mhs}.
+Vďaka \acrshort{mhs} \projectName\ poskytovateľ nemusí mať na spravovanie 
+rezervácií vyhradeného zamestnanca alebo skupinu personálu, keďže o veľkú časť 
+sa postará už zákazník ako o samotnú rezerváciu izby/zariadenia v jeho 
+určenom čase, vyplnenie a kontrolu správnosti údajov a oboznámenie sa so 
+službami. Poskytovateľ už musí len zobrať na vedomie zákazníkovú rezerváciu, 
+prijať ju alebo ju zamietnuť s relevantným dôvodom a kontaktovať s tým 
+zákazníka. Pri prijatí rezervácie musí zabezpečiť personál, ak nejaký má, a 
+zabezpečí sľúbené služby a čistotu priestorov pri príchode alebo počas celého 
+pobytu zákazníka, podľa vopred dohodnutých podmienok.
 
-Tu treba popísať, čo sa v danej oblasti robí, aké sú tam pravidlá,
-ciele, postupy, aká je business logika (doménová logika) atď. Heslovite je táto informácia
-zhrnutá v zadaní, ktoré ste dostali, avšak treba ju rozvinúť a doplniť nespomenuté časti a
-súvislosti. Použite vlastnú inteligenciu, tvorivosť, externé zdroje a diskusiu s inými ľuďmi, aby
-ste zistili, ako funguje daná doménová oblasť.
-
+\newpage
 \subsection{Používateľské požiadavky}
-Definujte zákazníkove ciele a prepíšte ich na merateľné požiadavky.
-Identifikujte a popíšte funkcionálne, nefunkcionálne a doménové požiadavky.
+\begin{enumerate}[label=\Alph*]
+    \item Funkcionálne požiadavky
+    \begin{itemize}
+        \item List entries start with the \verb|\item| command.
+        \item Individual entries are indicated with a black dot, a so-called bullet.
+        \item The text in the entries may be of any length.
+    \end{itemize}
+    \item Nefunkcionálne požiadavky
+    \begin{itemize}
+        \item List entries start with the \verb|\item| command.
+        \item Individual entries are indicated with a black dot, a so-called bullet.
+        \item The text in the entries may be of any length.
+    \end{itemize}
+    \item Doménové požiadavky
+    \begin{itemize}
+        \item List entries start with the \verb|\item| command.
+        \item Individual entries are indicated with a black dot, a so-called bullet.
+        \item The text in the entries may be of any length.
+    \end{itemize}
+\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
