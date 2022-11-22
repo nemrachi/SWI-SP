@@ -1,5 +1,6 @@
 \section{Používateľská špecifikácia} % 3-4 strany
 \subsection{Stručný úvod do problematiky}
+
 \acrfull{mhs} \projectName\ má ľuďom uľahčiť vyhľadávanie a rezerváciu 
 ubytovania v rôznych krajinách sveta.
 Systém je určený pre dve skupiny používateľov. 
@@ -54,6 +55,7 @@ podmienok.
 \newpage
 
 \subsection{Používateľské požiadavky}
+
 \begin{enumerate}[label=\Alph*.]
     \item Funkcionálne požiadavky
     \begin{itemize}
@@ -66,8 +68,8 @@ podmienok.
         \item Platba za ubytovanie
         \item Zákazník nedokáže rezervovať ubytovanie bez registrácie
         \item Registrácia zákazníka
-        \item Prihlásenie zákazníka do jeho používateľského konta pomocou 
-        mena a hesla
+        \item Prihlásenie a odhlásenie zákazníka do jeho používateľského konta 
+        pomocou mena a hesla
         \item Registrácia ubytovacieho zariadenia
         \item Poskytoytovateľ nedokáže registrovať ubytovanie bez 
         registrácie a overenia údajov
@@ -118,27 +120,125 @@ podmienok.
 
 \section{Systémová špecifikácia}
 
-\subsection{Diagramy prípadov použitia.}
-Nakreslite diagram(y) prípadov použitia pre daný softvérový
-systém. Diagram (minimálne jeden, prípadne viacej ak sa to hodí), bude pomocou prípadov
-použitia obsahovať celú hlavnú funkcionalitu systému. Každý prípad použitia by mal, v rámci
-svojej realizácie, poskytovať svojmu hráčovi (alebo hráčom) niečo hodnotné, nejakú užitočnú
-funkcionalitu, nejaký pozorovateľný výsledok alebo zmenu.
+\subsection{Diagramy prípadov použitia}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{img/uc_diagram.png}
+  \caption{Use case diagram}
+  \label{uc_diagram}
+\end{figure}	
+
+\newpage
 
 \subsection{Use-case tabuľky}
-K trom najzložitejším prípadom použitia vytvorte use-case tabuľku, ktorá
-bude obsahovať [2b]:
-– názov prípadu použitia
-– identifikátor - ako identifikátor môžete použiť svoje vlastné číslovanie, ktoré bude
-spájať jednotlivé prípady použitia z diagramu prípadov použitia.
-– opis prípadu použitia (stručný)
-– hráčov
-– vstupné podmienky
-– inicializácia
-– hlavnú postupnosť udalostí
-– alternatívnu postupnosť udalostí
-– výstupné podmienky
-VZOR: tutoriál č.2 – \href{https://uim.fei.stuba.sk/wp-content/uploads/2022/09/CV2-USC_tabulka_TUTORIAL.pdf}{use-case tabuľka}
+
+\begin{table}[h!]
+    \centering
+    \caption{Use case: Rezervácia ubytovania}
+    \begin{tabular}{||p{\textwidth}||} 
+        \hline
+        \thead{Rezervácia ubytovania} \\ \hline\hline
+        Číslo prípadu použitia: 9 \\ \hline
+        Opis: Zákazník si rezervuje ubytovanie. \\ \hline
+        Aktéri: Zákazník \\ \hline
+        Vstupné podmienky: Zákazník je prihlásený. \\ \hline
+        Inicializácia: Výber vyhľadaného ubytovania a stlačenie tlačidla 
+        'Rezervovať'. \\ \hline
+        Hlavný scenár:
+            \begin{enumerate}
+                \item Vyberie dátumy pobytu z voľných dátumov.
+                \item Vyberie počeť osôb, ktorí sa chcú ubytovať, z povoleného 
+                    počtu osôb.
+                \item Vyberie spôsob platby plnej sumy.
+                \item Skontroluje si rezervačné informácie.
+                \item Prečíta si pravidlá a podmienky ubytovania a systému a 
+                    potvrdí, že si ich prečítal.
+                \item Zaplatí za rezerváciu.
+            \end{enumerate} \\ \hline
+        Alternatívny scenár 1:
+            \begin{enumerate}[label=1.\arabic*]
+                \item Ak zákazník nemá dostatok finančných prostriedkov pri 
+                    vybranom spôsobe platby, po neúspešnej platbe ho systém 
+                    upozorní a dovolí mu vybrať iný spôsob platby.
+                \item Ak nechce pokračovať v platení, zruší rezerváciu tým, že 
+                    odíde z rezervácie ubytovania.
+            \end{enumerate} \\
+        Alternatívny scenár 2:
+            \begin{enumerate}[label=2.\arabic*]
+                \item Zákazník môže zanechať správu poskytovateľovi pri 
+                    rezervácii.
+            \end{enumerate} \\ \hline
+        Výstupné podmienky: Zákazník má rezevované ubytovanie. \\ \hline
+    \end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}[h!]
+    \centering
+    \caption{Use case: Vyhľadanie ubytovania}
+    \begin{tabular}{||p{\textwidth}||} 
+        \hline
+        \thead{Vyhľadanie ubytovania} \\ \hline\hline
+        Číslo prípadu použitia: 12 \\ \hline
+        Opis: Zákazník si vyhľadá ubytovanie. \\ \hline
+        Aktéri: Zákazník \\ \hline
+        Vstupné podmienky: Zákazník sa nachádza na stránke systému. \\ \hline
+        Inicializácia: Výber destinácie ubytovania. \\ \hline
+        Hlavný scenár:
+            \begin{enumerate}
+                \item Zákazník vyberie mesto, kde by sa chcel ubytovať.
+                \item Taktiež vyberie počet kilometrov od vybraného mesta, koľko 
+                    je ochotný byť vzdialený od želaného mesta.
+            \end{enumerate} \\ \hline
+        Alternatívny scenár 1:
+            \begin{enumerate}[label=1.\arabic*]
+                \item Zákazník môže použiť filter na vyhľadanie ubytovania podľa 
+                    jeho preferencií.
+                \item Môže filtrovať mesto, kilometre od mesta, cenu, počet lôžok, 
+                    služby (napr. bazén, výpožička bicyklov, atď.), pet-friendly, 
+                    penzia, viac destinácií alebo aktivity v okolí ubytovania.
+            \end{enumerate} \\ \hline
+        Výstupné podmienky: Zákazník vyhľadal ubytovanie podľa jeho predstáv. \\ \hline
+    \end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}[h!]
+    \centering
+    \caption{Use case: Registrácia ubytovania}
+    \begin{tabular}{||p{\textwidth}||} 
+        \hline
+        \thead{Registrácia ubytovania} \\ \hline\hline
+        Číslo prípadu použitia: 6 \\ \hline
+        Opis: Poskytovateľ registruje do systému svoje ponúkané ubytovanie. \\ \hline
+        Aktéri: Poskytovateľ \\ \hline
+        Vstupné podmienky: Poskytovateľ je prihlásený a overený. \\ \hline
+        Inicializácia: Poskytovateľ stlačí tlačidlo v menu na zaregistrovanie 
+        ubytovania. \\ \hline
+        Hlavný scenár:
+            \begin{enumerate}
+                \item Poskytovateľ vyberie z evidovaných destinácií, kde sa jeho 
+                    ubytovanie nachádza.
+                \item Zadá adresu, kde je ubytovanie lokalizované.
+                \item Zadá popis k ubytovaniu, fotky a cenu.
+                \item Vyberie z uvedených parametrov, čo vie ubytovanie 
+                    poskytovať ako napríklad počet lôžok, 
+                    služby (napr. bazén, výpožička bicyklov, atď.), 
+                    pet-friendly, penzia alebo aktivity v okolí ubytovania.
+                \item Po stlačení tlačidla "Registrovať" sa záznam ubytovania 
+                pošle systémovému administrátorovi na overenie. 
+            \end{enumerate} \\ \hline
+        Alternatívny scenár 1:
+            \begin{enumerate}[label=1.\arabic*]
+                \item Ak destinácia v systéme nie je evidovaná, poskytovateľ si 
+                    ju vie zadať sám.
+            \end{enumerate} \\ \hline
+        Výstupné podmienky: Poskytovateľ má registrované ubytovanie. \\ \hline
+    \end{tabular}
+\end{table}
 
 \subsection{Diagram tried}
 Vytvorte jeden detailný dátový model pre celý váš systém, ktorý bude zahŕňať
@@ -194,44 +294,6 @@ so systémom na projektový manažment.
 Odporúčame: Microsoft Project, Project Libre alebo google: alternatives to ms project
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \begin{table}[!htbp]
-% \caption{Moduly a ich funkcie pri anonymizácii}
-% \label{modulyVlastnosti}
-% \begin{center}
-% \begin{tabular}{p{4cm}|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
-% & \multicolumn{14}{c}%
-% 	 {\textbf{Funkcia}}\\ \hline
-% &&&& & &\multicolumn{8}{c}%
-% 	 {Modifikácia}\\ 
-% \textbf{Modul} &\begin{sideways} zobrazenie hlavičky \end{sideways} &\begin{sideways} blokovanie skriptov \end{sideways} &\begin{sideways} zmena IP \end{sideways} & \begin{sideways} zmena lokalizácie \end{sideways} & \begin{sideways} zmazanie/blokovanie cookies \end{sideways} & \begin{sideways} blokovanie trackerov \end{sideways}  & \begin{sideways} popis \end{sideways} & \begin{sideways}používateľský agent\end{sideways} & \begin{sideways} kódové označenie prehliadača \end{sideways} & \begin{sideways} názov prehliadača \end{sideways} & \begin{sideways} verzia prehliadača \end{sideways} & \begin{sideways} platforma \end{sideways} & \begin{sideways} výrobca prehliadača \end{sideways} & \begin{sideways} označenie výrobcu prehliadača \end{sideways} \\ \hline
-% User agent switcher & & & & & &  & X & X & X & X & X & X & X & X  \\ \hline
-% Ghostery &  && & & X & X &  &  & & & & & & \\  \hline
-% Better privacy && &  & & X &  &  &  & & & & & & \\  \hline
-% Anonymox &  && X & X & X &  & X & X & & & & & & \\  \hline
-% Modify headers & & &  &  & X &  &  & X &  &  &  & & &  \\  \hline
-% Request policy & & &  &  & & X  &  &  &  &  &  & & &   \\  \hline
-% Live HTTP headers & X& &  &  & &  &  &  &  &  &  & & &   \\  \hline
-% User agent awitcher & & &  &  & &  & X & X &  &  &  & & &   \\  \hline
-% Header hacker & & &  &  & &  & X & X & X & X & X & X & X & X    \\  \hline
-% Mod header & & &  &  & &  & X & X & X & X & X & X & X & X    \\  \hline
-% Script no & &X &  &  & &  &  &  &  &  &  &  &  &     \\  \hline
-% No script & &X &  &  & &  &  &  &  &  &  &  &  &     \\  \hline
-% Proxify it & & &X  & X & &  &  &  &  &  &  &  &  &     \\  \hline
-% I'm not here & & &  & X & &  &  &  &  &  &  &  &  &     \\  \hline
-% Get edition & &X &X &X &X&X &  &  &  &  &  &  &  &     \\  \hline
-% Anonymous browsing toolbar & & & X & X & &  &  &  &  &  &  &  &  &     \\  \hline
-% Easy hide your IP and surf & & & X & X& &  &  & X & X & X & X &  &  &     \\  \hline
-% \end{tabular}
-% \end{center}
-% \end{table}
-
-% \begin{figure}[!htbp]
-%   \centering
-%   \includegraphics[width=8cm]{img/vzhlad.png}
-%   \caption{Predpokladaný vzhľad rozšírenia.}
-%   \label{vzhladobr}
-% \end{figure}	 
 
 % \begin{algorithm}
 % \scriptsize

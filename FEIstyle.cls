@@ -84,6 +84,11 @@
 \renewcommand \vhAuthorColWidth{3cm}
 \renewcommand{\vhchangename}{Zmeny}
 
+\usepackage{array, makecell}
+
+\renewcommand{\arraystretch}{1.5}
+\renewcommand\theadfont{\bfseries}
+
 \usepackage[fontsize=12pt]{fontsize}
 \usepackage[a4paper, margin=2.5cm]{geometry}
 
